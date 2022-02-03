@@ -23,7 +23,13 @@ repeatRegex.test(repeatStr); // Returns true
 repeatStr.match(repeatRegex); // Returns ["row row row", "row"]
 ```
 
-不需要被复用的分组，可以用 ?: 标识，例如：
+## 非捕获分组
+
+不需要被复用的捕获组可以使用非捕获分组（non-capturing group）。
+
+非捕获分组捕获道德内容不会被保存到临时变量中。
+
+非捕获分组分组用 `?:` 标识，例如：
 
 ```javascript
 let repeatStr = "row row row"
