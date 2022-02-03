@@ -16,9 +16,19 @@ bugStr.match(bgRegex);  // ["bug"]
 bogStr.match(bgRegex);  // null
 ```
 
-例如，可以使用连字符定义所有小写字母 `/[a-z]/` ，可以可以定义小写字母和数字 `/[a-z0-9]/`
+例如，可以使用连字符定义所有小写字母 `/[a-z]/` ，可以定义小写字母和数字 `/[a-z0-9]/`，可以定义十六进制数 `[a-fA-F0-9]`
 
 正则表达式将方括号视为特殊的元字符（metacharacter），因此方括号不参与匹配。
+
+## 字符集之间的关系
+
+### 并集
+
+例如 `[0-3[6-9]]` 取 0-3 之间的数字或 6-9 之间的数字
+
+### 差集
+
+例如 `[a-z&&[^m-r]]` 取 a-z 之间的字母，但不包括 m-r 之间的字母
 
 ## 预定义字符集
 
@@ -105,6 +115,7 @@ let result = sample.match(countNonWhiteSpace);  // ["e", "e"]
 
 > 旧版 Regex 使用 \< 和 \> 匹配单词边界，现在只在 grep vim 等命令中支持旧版方式。
 > 例如 `grep -Eoc '\<(THE|The|the)\>' file.txt` 统计 THE The the 出现次数。
+> `(THE|The|the)` 可以简写为 `(?i)the`
 
 ### `\Q \E` 匹配元字符字面值
 

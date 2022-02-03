@@ -21,7 +21,7 @@ testRegex.test(testStr); // true
 
 ## 多种匹配模式
 
-正则表达式中可以`OR`操作符（也称为 `Alternation` 操作符）创建多种匹配模式匹配多种可能的条件。
+正则表达式中可以`OR`操作符（也称为 `Alternation` 操作符）创建多个子模式匹配多种可能的条件。
 
 ```javascript
 let petString = "James has a pet cat.";
@@ -29,7 +29,7 @@ let petRegex = /dog|cat|bird|fish/; // 只要 petString 中存在 dog 或 cat �
 let result = petRegex.test(petString);
 ```
 
-多种匹配模式也可以在捕获组中使用。
+子模式也可以在捕获组中使用。
 
 ```javascript
 let myString = "Eleanor Roosevelt";

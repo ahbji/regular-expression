@@ -2,7 +2,7 @@
 
 ## 概述
 
-先行断言 （Lookaheads）是告诉 JavaScript 在字符串中向前查找的匹配模式。 
+先行断言（Lookaheads）是告诉 JavaScript 在字符串中向前查找的匹配模式。 
 
 当想要在同一个字符串上搜寻多个匹配模式时，这可能非常有用。
 
@@ -37,6 +37,30 @@ let quit = "qu";
 let noquit = "qt";
 let qRegex = /q(?!u)/;
 quit.match(qRegex); // null
+noquit.match(qRegex); // ["q"]
+```
+
+## 正向回顾断言
+
+正向回顾断言的模式时匹配的条件不会包含在匹配结果中
+
+```javascript
+let quit = "qu";
+let noquit = "qt";
+let qRegex = /q(?<=u)/;
+quit.match(qRegex); // null
+noquit.match(qRegex); // null
+```
+
+## 负向回顾断言
+
+负向回顾断言会查看某个模式在从左到右的文本流的后面有没有出现
+
+```javascript
+let quit = "qu";
+let noquit = "qt";
+let qRegex = /q(?<!u)/;
+quit.match(qRegex); // ["q"]
 noquit.match(qRegex); // ["q"]
 ```
 
